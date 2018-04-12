@@ -7,10 +7,9 @@ const UserInput = (props) => {
 			<textarea 
 				type="text"
 				rows="4" 
-				cols="50"
 				autoFocus="autofocus"
 				maxLength="500"
-				placeholder="Напиши или скопируй сюда текст для анализа"
+				placeholder="Enter your text here"
 			/>
 		</div>
 	)

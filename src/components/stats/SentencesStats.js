@@ -5,8 +5,14 @@ class SentensesStats extends React.Component {
 	render() {
 
 		return ( 
-			<div>
-				TODO: SentensesStats
+			<div className="stats">
+				<div className="note">
+					<h6></h6>
+					<p></p>
+				</div>
+				<div className="chart">
+					<svg></svg>
+				</div>
 			</div>
 		);
 	}

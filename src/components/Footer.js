@@ -1,7 +1,6 @@
 import React from "react";
 
-const Footer = (props) => {
-		return (
+const Footer = (props) => (
 			<footer>
 				<p>
 					<a href="http://twitter.com/maryzamcode" target="_blank">Made by Mary Zam</a> 
@@ -9,6 +8,5 @@ const Footer = (props) => {
 				</p>
 			</footer>
 		);
-	};
 
 export default Footer;

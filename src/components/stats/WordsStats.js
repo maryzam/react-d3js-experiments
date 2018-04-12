@@ -5,7 +5,7 @@ class WordsStats extends React.Component {
 	render() {
 
 		return ( 
-			<div>
+			<div className="stats">
 				TODO: WordsStats
 			</div>
 		);

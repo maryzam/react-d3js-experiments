@@ -1,12 +1,13 @@
 import React from "react";
 
-const Header = (props) => {
-	return (
+const Header = (props) => (
 		<header>
-			<h1>Анализатор текста</h1>
-			<h4>(Пример использования React+D3)</h4>
+			<h1>Text analyzer</h1>
+			<p>
+				The tool shows you structure of a text, finds the most frequent words and characters and gives some other interesting information <br/>
+				<small>(Only English texts are supported)</small>
+			</p>
 		</header>
-	)
-};
+	);
 
 export default Header;

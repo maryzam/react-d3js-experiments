@@ -32,7 +32,7 @@ header, footer {
 
 header { 
 	text-align: center;
-	padding: 20px 10px;
+	padding: 10px 10px;
 }
 
 footer {
@@ -52,7 +52,6 @@ footer a:last-child {
 
 main {
 	flex: 1 1 auto;
-  	position: relative;
   	overflow-y: auto;
 	justify-content: center;
 	text-align: center;
@@ -63,12 +62,21 @@ main {
 }
 
 .user-input textarea {
+	width: 100%;
+	max-width: 800px;
 	border: 1px solid #999;
 	border-radius: 4px;
 	padding: 10px;
 }
 
 .user-input textarea::placeholder {
-	color: steelblue;
+	color: #2cb5e8;
 	font-style: italic;
+}
+
+.stats {
+	display: flex;
+	flex-direction: row;
+	flex: 1 1 auto;
+	min-height: 400px;
 }

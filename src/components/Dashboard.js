@@ -1,5 +1,6 @@
 import React from "react";
 
+import Overview from "./stats/Overview";
 import LettersStats from "./stats/LettersStats";
 import WordsStats from "./stats/WordsStats";
 import SentencesStats from "./stats/SentencesStats";
@@ -14,9 +15,10 @@ class Dashboard extends React.Component {
 
 		return (
 			<div className="dashboard">
-				<SentencesStats />
-				<WordsStats />
 				<LettersStats />
+				<SentencesStats />
+				<Overview />
+				<WordsStats />
 			</div>
 		);
 	}
