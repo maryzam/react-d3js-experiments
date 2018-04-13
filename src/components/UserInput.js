@@ -10,6 +10,7 @@ const UserInput = (props) => {
 				autoFocus="autofocus"
 				maxLength="500"
 				placeholder="Enter your text here"
+				onChange= { props.onChange }
 			/>
 		</div>
 	)
