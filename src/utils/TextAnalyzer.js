@@ -3,7 +3,7 @@ const sentenceEndingRegex = /([^\.!\?]+[\.!\?]+)|([^\.!\?]+$)/;
 const alphaNumericsOnlyRegex = /[^0-9a-zA-Z]/gi;
 const alphabetOnlyRegex = /[^a-z]/gi;
 
-export function getLettersStats(text = '') {
+export function countLetters(text = '') {
 	const letters = {};
 	
 	text
@@ -18,7 +18,7 @@ export function getLettersStats(text = '') {
 				 .map((c) => ({ letter: c, count: letters[c] }));
 };
 
-export function getWordsStats(text = '') {
+export function countWords(text = '') {
 	const words = {};
 	text
 		.replace(alphaNumericsOnlyRegex, ' ')
@@ -33,14 +33,15 @@ export function getWordsStats(text = '') {
 				 .map((w) => ({ word: w, count: words[w] }));
 };
 
-export function getSentencesStats(text = '') {
+export function countSentences(text = '') {
 	const sentences = [];
 	text
 		.split(sentenceEndingRegex)
-		.forEach((s) => {
-			 const words = getWordsStats(s);
+		.forEach((s, i) => {
+			 const words = countWords(s);
 			 if (words.length > 0) {
 			 	sentences.push({
+			 		order: i,
 			 		words: words
 			 	});
 			 }

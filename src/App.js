@@ -1,40 +1,39 @@
 import React from "react";
 
-import * as Analyzer from "./utils/textAnalyzer";
-
 import Header from "./components/Header";
 import UserInput from "./components/UserInput";
 import Dashboard from "./components/Dashboard";
 import Footer from "./components/Footer";
 
+const minTextLength = 50;
+const maxTextLength = 2500;
+
 class App extends React.Component { 
 
-	constructor(props) { 
-		super(props);
-		this.state = { text: '' };
-	}
+	state = {
+		text: ''
+	};
 
 	onTextInput = (event) => {
+		const text = event.target.value;
 		this.setState({ 
-			text: event.target.value.trim()
+			text: text.slice(0, maxTextLength)
 		});
 	}
 
 	render() {
-		const { text } = this.state;
-
-		const letters = Analyzer.getLettersStats(text);
-		const words = Analyzer.getWordsStats(text);
-		const sentences = Analyzer.getSentencesStats(text);
-
-		console.log(letters, words, sentences);
-
 		return (
 			<div className="page">
 				<Header />
 				<main>
-					<UserInput onChange={ this.onTextInput } />
-					<Dashboard />
+					<UserInput 
+						text={ this.state.text } 
+						onChange={ this.onTextInput } 
+						minLength={ minTextLength }
+						maxLength={ maxTextLength } />
+					<Dashboard 
+						text={this.state.text }
+						minLength = { minTextLength }/>
 				</main>
 				<Footer />
 			</div>
