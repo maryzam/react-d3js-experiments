@@ -8,6 +8,10 @@ import LettersStats from "./stats/LettersStats";
 import WordsStats from "./stats/WordsStats";
 import SentencesStats from "./stats/SentencesStats";
 
+// todo
+const width = 400;
+const height = 300;
+
 class Dashboard extends React.Component { 
 
 	state = {
@@ -43,7 +47,7 @@ class Dashboard extends React.Component {
 		if (!this.state.isBigEnough) {
 			return (
 				<div className="dashboard">
-					<p>Text should contain at least { this.props.minLength} signs.</p>
+					<p><em>Please, enter text that contains at least { this.props.minLength} signs.</em></p>
 				</div>
 			)
 		}
@@ -53,10 +57,10 @@ class Dashboard extends React.Component {
 
 		return (
 			<div className="dashboard">
-				<LettersStats data={ this.state.letters }/>
-				<SentencesStats data={ this.state.sentences }/>
+				<LettersStats data={ this.state.letters } width={width} height={height}/>
+				<SentencesStats data={ this.state.sentences } width={width} height={height}/>
 				<Overview data={ overview }/>
-				<WordsStats data={ this.state.words }/>
+				<WordsStats data={ this.state.words } width={width} height={height}/>
 			</div>
 		);
 	}
