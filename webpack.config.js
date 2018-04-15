@@ -2,10 +2,10 @@
  var webpack = require('webpack');
 
  module.exports = {
-    entry: './src/index.js',
+    entry: './src/index.proto.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'index.js'
+        filename: 'index.proto.js'
     },
     resolve: {
         extensions: ['.js', '.jsx']
