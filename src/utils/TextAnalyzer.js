@@ -3,6 +3,8 @@ const sentenceEndingRegex = /([^\.!\?]+[\.!\?]+)|([^\.!\?]+$)/;
 const alphaNumericsOnlyRegex = /[^0-9a-zA-Z]/gi;
 const alphabetOnlyRegex = /[^a-z]/gi;
 
+const alphabet = "abcdefghijklmnopqrstuvwxyz".split('');
+
 export function countLetters(text = '') {
 	const letters = {};
 	
@@ -14,8 +16,10 @@ export function countLetters(text = '') {
 			letters[c] = (letters[c] || 0) + 1;
 		});
 
-	return Object.keys(letters)
-				 .map((c) => ({ letter: c, count: letters[c] }));
+	return alphabet.map((c) => ({
+		letter: c,
+		count: letters[c] || 0
+	}));
 };
 
 export function countWords(text = '') {
