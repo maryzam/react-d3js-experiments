@@ -39,15 +39,17 @@ export function countWords(text = '') {
 
 export function countSentences(text = '') {
 	const sentences = [];
+	let order = 0;
 	text
 		.split(sentenceEndingRegex)
-		.forEach((s, i) => {
+		.forEach((s) => {
 			 const words = countWords(s);
 			 if (words.length > 0) {
 			 	sentences.push({
-			 		order: i,
+			 		order: order,
 			 		words: words
 			 	});
+			 	order++;
 			 }
 		});
 

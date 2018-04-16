@@ -78,5 +78,9 @@ main {
 	display: flex;
 	flex-direction: row;
 	flex: 1 1 auto;
-	min-height: 400px;
+}
+
+.chart {
+	flex: 1 1 auto;
+	min-height: 300px;
 }

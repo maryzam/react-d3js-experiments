@@ -12,10 +12,10 @@ class LettersChart {
 	    this.update(data);
 	}
 
-	prepareContainer(ph) {
+	prepareContainer(ph, size) {
 	  	this.container = ph.append("svg")
-				    		.attr("width", this.size.width)
-				    		.attr("height", this.size.height)
+				    		.attr("width", size.width)
+				    		.attr("height", size.height)
 				    	.append("g")
 				    		.attr("class", "star-colors");
 	}
