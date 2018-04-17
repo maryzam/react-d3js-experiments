@@ -7,6 +7,7 @@ const alphabet = "abcdefghijklmnopqrstuvwxyz".split('');
 
 export function countLetters(text = '') {
 	const letters = {};
+	let total = 0;
 	
 	text
 		.toLowerCase()
@@ -14,11 +15,13 @@ export function countLetters(text = '') {
 		.split('')
 		.forEach((c) => {
 			letters[c] = (letters[c] || 0) + 1;
+			total++;
 		});
 
 	return alphabet.map((c) => ({
 		letter: c,
-		count: letters[c] || 0
+		count: letters[c] || 0,
+		frac: (letters[c] || 0) / total
 	}));
 };
 
