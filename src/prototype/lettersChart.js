@@ -1,30 +1,15 @@
 import * as d3 from "d3";
+import BaseChart from "./baseChart";
 
 const minWidth = 20;
 
-class LettersChart {
-
-	constructor(container, data) {
-
-		const ph = d3.select(container);
-
-	    this.size = ph.node().getBoundingClientRect();
-
-	    this.prepareContainer(ph);
-	    this.prepareScales();
-
-	    if (data && data.lenght) {
-	    	this.update(data);
-	    }
-	}
+class LettersChart extends BaseChart {
 
 	prepareContainer(ph) {
-	  	this.container = ph.append("svg")
-				    		.attr("width", this.size.width)
-				    		.attr("height", this.size.height)
-				    	.append("g")
-				    		.attr("class", "letters-stats")
-				    		.attr("transform", `translate(0, ${this.size.height / 2})`);
+		super.prepareContainer(ph);
+		this.container
+				.attr("class", "letters-stats")
+				.attr("transform", `translate(0, ${this.size.height / 2})`);
 	}
 
 	prepareScales() {

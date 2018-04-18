@@ -1,35 +1,26 @@
 import * as d3 from "d3";
+import BaseChart from "./baseChart";
 
-const margin = 40;
+const margin = 20;
 
-class SentencesChart {
+class SentencesChart extends BaseChart {
 
-	constructor( selector, data ) {
-		const ph = d3.select(selector);
-	    const size = ph.node().getBoundingClientRect();
-
-	    this.prepareContainer(ph, size);
-	    this.prepareScales(size);
-	    if (data && data.length) {
-	    	this.update(data);
-	    }
+	prepareContainer(ph) {
+		super.prepareContainer(ph);
+		this.container
+		   		.attr("class", "sentences-stats")
+		   		.attr("transform", `translate(${margin}, ${margin})`);
 	}
 
-	prepareContainer(ph, size) {
-		this.container = ph.append("svg")
-				    		.attr("width", size.width)
-				    		.attr("height", size.height)
-				    	.append("g")
-				    		.attr("class", "sentences-stats")
-				    		.attr("transform", `translate(${margin}, ${margin})`);
-	}
+	prepareScales() {
+		const { height, width } = this.size;
+		const doubleMargin = 2 * margin;
 
-	prepareScales(size) {
 		this.y = d3.scaleLinear()
-				   .range([(size.height - 2*margin), 0]);
+				   .range([(height - doubleMargin), 0]);
 
 		this.x = d3.scaleBand()
-					.range([0, (size.width - 2*margin)])
+					.range([0, (width - doubleMargin)])
 					.padding(0.1);
 	}
 

@@ -5,6 +5,12 @@ const alphabetOnlyRegex = /[^a-z]/gi;
 
 const alphabet = "abcdefghijklmnopqrstuvwxyz".split('');
 
+const byCount = function(a, b) {
+	const delta = b.count - a.count; 
+	if (delta !== 0) { return delta; }
+	return a.word > b.word;
+}
+
 export function countLetters(text = '') {
 	const letters = {};
 	let total = 0;
@@ -29,6 +35,7 @@ export function countWords(text = '') {
 	const words = {};
 	text
 		.replace(alphaNumericsOnlyRegex, ' ')
+		.toUpperCase()
 		.split(' ')
 		.forEach((current) => {
 			if (current.length > 0) {
@@ -37,7 +44,8 @@ export function countWords(text = '') {
 		});
 
 	return Object.keys(words)
-				 .map((w) => ({ word: w, count: words[w] }));
+				 .map((w) => ({ word: w, count: words[w] }))
+				 .sort(byCount);
 };
 
 export function countSentences(text = '') {
