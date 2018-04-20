@@ -2,6 +2,7 @@ import * as d3 from "d3";
 import BaseChart from "./baseChart";
 
 const minWidth = 20;
+const animDuration = 500;
 
 class LettersChart extends BaseChart {
 
@@ -34,12 +35,14 @@ class LettersChart extends BaseChart {
 				.attr("height", 10)
 				.attr("rx", 3)
 				.attr("ry", 3)
+				.style("fill", "gold")
 				.style("stroke", "white");
 
 		enter
 			.append("circle")
 				.attr("r", 8)
-				.attr("cy", 5);
+				.attr("cy", 5)
+				.style("fill", "gold");
 
 		enter
 			.append("text")
@@ -51,20 +54,24 @@ class LettersChart extends BaseChart {
 		const update = enter.merge(letters);
 
 		update
+			.transition().duration(animDuration)
 			.attr("transform", (d) => `translate(${this.scalePos(d._offset)}, 0)`);
 
 		update
 			.select("rect")
+			.transition().duration(animDuration)
 			.style("fill", (d) => (d.frac === 0) ? "gold" : "orange")
 			.attr("width", (d) => this.scalePos(d._width));
 
 		update
 			.select("circle")
+			.transition().duration(animDuration)
 			.style("fill", (d) => (d.frac === 0) ? "gold" : "orange")
 			.attr("cx", (d) => this.scalePos(d._width) / 2);
 
 		update
 			.select("text")
+			.transition().duration(animDuration)
 			.attr("x", (d) => this.scalePos(d._width) / 2);
 	}
 
