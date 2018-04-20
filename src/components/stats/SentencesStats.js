@@ -11,7 +11,15 @@ class SentensesStats extends React.Component {
 
 	scaleY = d3.scaleLinear();
 
+	componentDidMount() {
+		this.updateBars();
+	}
+
 	componentDidUpdate() {
+		this.updateBars();
+	}
+
+	updateBars() {
 		const height = this.props.height;
 		// let d3 update rendered bars' attributes
 		const bars = d3.select(this.refs.container)
