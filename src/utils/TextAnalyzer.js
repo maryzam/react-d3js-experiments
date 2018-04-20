@@ -1,5 +1,5 @@
 
-const sentenceEndingRegex = /([^\.!\?]+[\.!\?]+)|([^\.!\?]+$)/;
+const sentenceEndingRegex = /([^\.!\?\n\r]+[\.!\?\n\r]+)|([^\.!\?\n\r]+$)/;
 const alphaNumericsOnlyRegex = /[^0-9a-zA-Z]/gi;
 const alphabetOnlyRegex = /[^a-z]/gi;
 
@@ -51,6 +51,7 @@ export function countWords(text = '') {
 export function countSentences(text = '') {
 	const sentences = [];
 	let order = 0;
+	console.log(text);
 	text
 		.split(sentenceEndingRegex)
 		.forEach((s) => {
