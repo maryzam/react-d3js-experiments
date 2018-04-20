@@ -6,7 +6,7 @@ import * as Analyzer from "../utils/textAnalyzer";
 import Overview from "./stats/Overview";
 import LettersStats from "./stats/LettersStats";
 import WordsStats from "./stats/WordsStats";
-import SentencesStats from "./stats/SentencesStats";
+import SentensesStats from "./stats/SentencesStats";
 
 // todo
 const width = 400;
@@ -58,7 +58,7 @@ class Dashboard extends React.Component {
 		return (
 			<div className="dashboard">
 				<LettersStats data={ this.state.letters } width={width} height={height}/>
-				<SentencesStats data={ this.state.sentences } width={width} height={height}/>
+				<SentensesStats data={ this.state.sentences } width={width} height={height}/>
 				<Overview data={ overview }/>
 				<WordsStats data={ this.state.words } width={width} height={height}/>
 			</div>

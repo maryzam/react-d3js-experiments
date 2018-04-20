@@ -51,7 +51,6 @@ export function countWords(text = '') {
 export function countSentences(text = '') {
 	const sentences = [];
 	let order = 0;
-	console.log(text);
 	text
 		.split(sentenceEndingRegex)
 		.forEach((s) => {
