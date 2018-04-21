@@ -31,7 +31,8 @@
     "d3": "^5.0.0",
     "prop-types": "^15.6.1",
     "react": "^16.3.1",
-    "react-dom": "^16.3.1"
+    "react-dom": "^16.3.1",
+    "react-faux-dom": "^4.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

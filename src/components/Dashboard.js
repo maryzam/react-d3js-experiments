@@ -8,10 +8,6 @@ import LettersStats from "./stats/LettersStats";
 import WordsStats from "./stats/WordsStats";
 import SentensesStats from "./stats/SentencesStats";
 
-// todo
-const width = 400;
-const height = 300;
-
 class Dashboard extends React.Component { 
 
 	state = {
@@ -57,10 +53,10 @@ class Dashboard extends React.Component {
 
 		return (
 			<div className="dashboard">
-				<LettersStats data={ this.state.letters } width={width} height={height}/>
-				<SentensesStats data={ this.state.sentences } width={width} height={height}/>
+				<LettersStats data={ this.state.letters } width={600} height={50}/>
+				<SentensesStats data={ this.state.sentences } width={600} height={400}/>
 				<Overview data={ overview }/>
-				<WordsStats data={ this.state.words } width={width} height={height}/>
+				<WordsStats data={ this.state.words } width={600} height={400}/>
 			</div>
 		);
 	}
