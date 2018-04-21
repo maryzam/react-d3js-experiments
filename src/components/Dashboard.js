@@ -47,16 +47,20 @@ class Dashboard extends React.Component {
 				</div>
 			)
 		}
-		const overview = { 
-			totalSentences: this.state.sentences.length
-		};
+		
+		const { letters, sentences, words } = this.state;
 
 		return (
 			<div className="dashboard">
-				<LettersStats data={ this.state.letters } width={600} height={50}/>
-				<SentensesStats data={ this.state.sentences } width={600} height={400}/>
-				<Overview data={ overview }/>
-				<WordsStats data={ this.state.words } width={600} height={400}/>
+				<div>
+			         <LettersStats data={ letters } width={600} height={50}/>
+					 <Overview {...this.state} />
+				</div>
+				<div>
+					<SentensesStats data={ this.state.sentences } width={600} height={400}/>
+					<WordsStats data={ this.state.words } width={600} height={400}/>
+				</div>
+
 			</div>
 		);
 	}
