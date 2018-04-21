@@ -23,7 +23,7 @@ class SentensesStats extends React.Component {
 		const height = this.props.height;
 		// let d3 update rendered bars' attributes
 		const bars = d3.select(this.refs.container)
-					   .selectAll("g")
+					   .selectAll(".bar")
 					   .data(this.props.data);
 		bars
 			.transition()
@@ -51,6 +51,7 @@ class SentensesStats extends React.Component {
 					<g className={cssClass} ref="container">
 						{ data.map((d, i) => 
 									(<g key={d.order} 
+										className="bar"
 										transform={`translate(${width},${centerY})`}>
 										<rect 
 											width={ barWidth }

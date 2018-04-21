@@ -66,7 +66,7 @@ class WordsChart extends BaseChart {
 			.style("font-size", function(d) { return `${ d.radius / 3 }px`;});
 
 		this.simulation.nodes(data);
-		this.simulation.alpha(0.1).restart();
+		this.simulation.alpha(0.3).restart();
 	}
 
 	processData(newData) {
