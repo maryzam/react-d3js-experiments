@@ -47,6 +47,7 @@ class SentensesStats extends React.Component {
 
 		return ( 
 			<div className="stats">
+				<h4>Text structure (words per sentence)</h4>
 				<svg width={width} height={height}>
 					<g className={cssClass} ref="container">
 						{ data.map((d, i) => 

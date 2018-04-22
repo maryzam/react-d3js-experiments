@@ -48,8 +48,8 @@ class WordsStats extends React.Component {
 		const { data, width, height } = this.props;
 		return ( 
 			<div className="stats">
-				<svg width={width} height={height} ref="container">
-				</svg>
+				<h4>Top words</h4>
+				<svg width={width} height={height} ref="container"></svg>
 			</div>
 		);
 	}
@@ -90,7 +90,7 @@ class WordsStats extends React.Component {
 
 		enter
 			.append("text")
-			.text(function(d) { return d.word; });
+			.text(function(d) { return `${d.word}\n\r(${d.count})`; });
 
 		const update = enter.merge(words);
 		update

@@ -55,6 +55,8 @@ main {
   	overflow-y: auto;
 	justify-content: center;
 	text-align: center;
+	max-width: 960;
+	margin: auto;
 }
 
 .user-input {
@@ -76,9 +78,9 @@ main {
 
 .stats {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	flex: 1 1 auto;
-	align-items: stretch;
+	align-items: center;
 	justify-content: center;
 }
 
@@ -98,10 +100,15 @@ main {
 	font-weight: bold;
 }
 
+.stats h4 {
+	padding-bottom: 5px;
+}
+
 .stats text {
 	text-anchor: middle;
 	fill: white;
 	font: monospace;
+	pointer-events: none;
 }
 
 .letters-stats {}

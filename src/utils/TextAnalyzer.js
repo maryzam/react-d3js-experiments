@@ -1,6 +1,6 @@
 
 const sentenceEndingRegex = /([^\.!\?\n\r]+[\.!\?\n\r]+)|([^\.!\?\n\r]+$)/;
-const alphaNumericsOnlyRegex = /[^0-9a-zA-Z]/gi;
+const alphaNumericsOnlyRegex = /[^0-9a-zA-Z']/gi;
 const alphabetOnlyRegex = /[^a-z]/gi;
 
 const alphabet = "abcdefghijklmnopqrstuvwxyz".split('');

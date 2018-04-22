@@ -52,8 +52,8 @@ class Dashboard extends React.Component {
 		return (
 			<div className="dashboard">
 				<div className="col-section">
-			         <LettersStats data={ letters } width={800} height={40}/>
 					 <Overview {...this.state} />
+			         <LettersStats data={ letters } width={800} height={30}/>
 				</div>
 				<div className="row-section">
 					<SentensesStats data={ sentences } width={400} height={300}/>
