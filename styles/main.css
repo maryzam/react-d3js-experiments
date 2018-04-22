@@ -55,8 +55,6 @@ main {
   	overflow-y: auto;
 	justify-content: center;
 	text-align: center;
-	max-width: 1260;
-	margin: auto;
 }
 
 .user-input {
