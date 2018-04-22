@@ -9,7 +9,7 @@ const UserInput = (props) => {
 		<div className="user-input">
 			<textarea 
 				type="text"
-				rows="4" 
+				rows="3" 
 				autoFocus="autofocus"
 				value= { props.text }
 				maxLength= { props.maxLength }

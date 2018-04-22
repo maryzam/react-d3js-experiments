@@ -27,19 +27,19 @@ class SentensesStats extends React.Component {
 					   .data(this.props.data);
 		bars
 			.transition()
-			.attr("transform", (d) => `translate(${this.scaleX(d.order)}, ${this.scaleY(d.words.length) / 2})`);
+			.attr("transform", (d) => `translate(${this.scaleX(d.order)}, ${this.scaleY(d.total) / 2})`);
 
 		bars.select("rect")
 			.transition()
 				.attr("width", this.scaleX.bandwidth())
-				.attr("height",(d) => ( height - this.scaleY(d.words.length)));
+				.attr("height",(d) => ( height - this.scaleY(d.total)));
 	}
 
 	render() {
 		const { width, height, data } = this.props; 
 
 		this.scaleX.range([0, width]).domain(data.map((d) => d.order));
-		this.scaleY.range([height, 0]).domain([0, d3.max(data, (d) => d.words.length)]);
+		this.scaleY.range([height, 0]).domain([0, d3.max(data, (d) => d.total)]);
 
 		const barWidth = this.scaleX.bandwidth();
 		const centerY = height / 2;
@@ -56,13 +56,10 @@ class SentensesStats extends React.Component {
 										<rect 
 											width={ barWidth }
 											rx="5" ry="5"
-											fill="tomato"
 										/>
 										<text 
-											transform={`translate(${labelX}, 15)`}
-											textAnchor="middle"
-											fill="white">
-											{d.words.length}
+											transform={`translate(${labelX}, 15)`}>
+											{d.total}
 										</text>
 									 </g>)
 						)}

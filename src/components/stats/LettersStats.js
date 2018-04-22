@@ -68,9 +68,7 @@ class LettersChart extends React.Component {
 		enter
 			.append("rect")
 				.attr("height", 10).attr("width", 0)
-				.attr("rx", 3).attr("ry", 3)
-				.style("fill", "gold")
-				.style("stroke", "white");
+				.attr("rx", 3).attr("ry", 3);
 
 		enter
 			.append("circle")
@@ -80,8 +78,6 @@ class LettersChart extends React.Component {
 
 		enter
 			.append("text")
-				.style("text-anchor", "middle")
-				.style("font", "10px monospace")
 				.text((d) => d.letter)
 				.attr("y", 7).attr("x", 0);
 

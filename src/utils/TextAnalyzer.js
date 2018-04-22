@@ -5,10 +5,12 @@ const alphabetOnlyRegex = /[^a-z]/gi;
 
 const alphabet = "abcdefghijklmnopqrstuvwxyz".split('');
 
-const byCount = function(a, b) {
-	const delta = b.count - a.count; 
-	if (delta !== 0) { return delta; }
-	return a.word > b.word;
+const byCount = function(a,b) {
+	const delta = b.count - a.count;
+	if (delta === 0) {
+		return a.word > b.word;
+	} 
+	return delta;
 }
 
 export function countLetters(text = '') {
@@ -43,9 +45,8 @@ export function countWords(text = '') {
 			}
 		});
 
-	return Object.keys(words)
-				 .map((w) => ({ word: w, count: words[w] }))
-				 .sort(byCount);
+	const stats = Object.keys(words).map((w) => ({ word: w, count: words[w] }));
+	return [].concat(stats).sort(byCount);
 };
 
 export function countSentences(text = '') {
@@ -56,9 +57,11 @@ export function countSentences(text = '') {
 		.forEach((s) => {
 			 const words = countWords(s);
 			 if (words.length > 0) {
+				let total = words.reduce((acc, curr) => acc + curr.count, 0);
 			 	sentences.push({
 			 		order: order,
-			 		words: words
+			 		words: words,
+			 		total: total
 			 	});
 			 	order++;
 			 }

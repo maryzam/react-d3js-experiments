@@ -78,9 +78,44 @@ main {
 	display: flex;
 	flex-direction: row;
 	flex: 1 1 auto;
+	align-items: stretch;
+	justify-content: center;
 }
 
-.chart {
+.col-section { 
+	display: flex;
+	flex-direction: column;
 	flex: 1 1 auto;
-	min-height: 300px;
+}
+
+.row-section { 
+	display: flex;
+	flex-direction: row;
+	flex: 1 1 auto;
+ }
+
+.stats span {
+	font-weight: bold;
+}
+
+.stats text {
+	text-anchor: middle;
+	fill: white;
+	font: monospace;
+}
+
+.letters-stats {}
+.letters-stats rect {
+	fill: gold;
+	stroke: white;
+}
+
+.letters-stats text {
+	font-size: 10px;
+}
+
+.sentences-stats {}
+
+.sentences-stats rect {
+	fill: tomato;
 }

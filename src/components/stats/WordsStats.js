@@ -90,10 +90,7 @@ class WordsStats extends React.Component {
 
 		enter
 			.append("text")
-			.text(function(d) { return d.word; })
-				.style("text-anchor", "middle")
-				.style("font", "monospace")
-				.style("fill", "white");
+			.text(function(d) { return d.word; });
 
 		const update = enter.merge(words);
 		update
@@ -111,16 +108,29 @@ class WordsStats extends React.Component {
 	}
 
 	processData(source) {
+		const old = this.data || [];
 		const data = source.slice(0, maxCount);
+		console.log(data);
 		const total = d3.sum(data, function(d) { return d.count });
 		this.scaleRadius.domain([0, total]);
+		this.data = data.map((d) => {
+			const prev = old.find(function(c) { return c.word === d.word; });
+			const item = { 
+				word: d.word,
+				count: d.count,
+				radius: this.scaleRadius(d.count)
+			};
+			if (prev) {
+				item["color"] = prev.color;
+				item["x"] = prev.x;
+				item["y"] = prev.y;
+			} else {
+				item["color"] = scaleColor(Math.random());
+			}
+			return item;
+		});
 
-		return data.map((d) => ({ 
-			word: d.word,
-			count: d.count,
-			radius: this.scaleRadius(d.count), 
-			color: scaleColor(Math.random()),
-		}));
+		return this.data;
 	}
 
 	onTick() {

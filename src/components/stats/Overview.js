@@ -5,13 +5,12 @@ const byCount = function(a, b) { return b.count - a.count; }
 
 const Overview = ({ letters, sentences, words }) => {
 
-	const longest = words.sort(byWordLength)[0].word;
-
+	const longest = [].concat(words).sort(byWordLength)[0].word;
+	const totalWords = words.reduce((acc, curr) => acc + curr.count, 0);
 	return ( 
 		<div className="stats">
-			<h4>Overview</h4>
 			<p>Total sentences: <span>{ sentences.length }</span></p>
-			<p>Total words: <span>{ words.length }</span></p>
+			<p>Total words: <span>{ totalWords }</span></p>
 			<p>The longest word is <span>{ longest } </span> {`(${longest.length} letters)`}</p>
 		</div>
 	);

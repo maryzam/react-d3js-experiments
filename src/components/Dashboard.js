@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types"; 
 
-import * as Analyzer from "../utils/textAnalyzer";
+import * as Analyzer from "../utils/TextAnalyzer";
 
 import Overview from "./stats/Overview";
 import LettersStats from "./stats/LettersStats";
@@ -49,16 +49,15 @@ class Dashboard extends React.Component {
 		}
 		
 		const { letters, sentences, words } = this.state;
-
 		return (
 			<div className="dashboard">
-				<div>
-			         <LettersStats data={ letters } width={600} height={50}/>
+				<div className="col-section">
+			         <LettersStats data={ letters } width={800} height={40}/>
 					 <Overview {...this.state} />
 				</div>
-				<div>
-					<SentensesStats data={ this.state.sentences } width={600} height={400}/>
-					<WordsStats data={ this.state.words } width={600} height={400}/>
+				<div className="row-section">
+					<SentensesStats data={ sentences } width={400} height={300}/>
+					<WordsStats data={ words } width={400} height={300}/>
 				</div>
 
 			</div>
